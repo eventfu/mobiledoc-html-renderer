@@ -27,6 +27,12 @@ module Mobiledoc
       self.unknown_atom_handler = state[:unknown_atom_handler]
     end
 
+    def validate_version(version)
+      unless [ self.class::MOBILEDOC_VERSION, '0.3.1' ].include?(version)
+        raise Mobiledoc::Error.new(%Q[Unexpected Mobiledoc version "#{version}"]);
+      end
+    end
+
     def render_card_section(type, index)
       card, name, payload = _find_card_by_index(index)
 
