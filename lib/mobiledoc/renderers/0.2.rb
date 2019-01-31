@@ -43,7 +43,7 @@ module Mobiledoc
         end
       end
 
-      root.to_html(save_with: 0).gsub('  ', ' &nbsp;')
+      root.to_html(encoding: 'US-ASCII', save_with: 0).gsub('  ', ' &nbsp;')
     end
 
     def create_document_fragment
